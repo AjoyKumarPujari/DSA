@@ -1,0 +1,29 @@
+//MAXIMUM SUBARRAY SUM using KADAN's ALgo  //it goes one by one and sum if it became less then xero it starts again and add
+
+    using namespace std;
+    int maxSubArray(vector<int>& nums) {
+        int sum =0;
+        int maxi = INT_MIN;
+        for (int i=0; i<nums.size();i++){
+            sum +=nums[i];
+
+            if(sum > maxi){
+                maxi=sum;
+            }
+
+
+            if(sum<0){
+                sum=0;
+            }
+        }
+        return maxi;
+    }
+    int main() {
+    vector<int> nums = {2, 3, -8, 7, -1, 2, 3};
+    cout << maxSubArray(nums);
+    return 0;
+    }
+
+
+
+ 
