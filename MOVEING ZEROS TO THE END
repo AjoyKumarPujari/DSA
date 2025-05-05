@@ -1,0 +1,27 @@
+MOVEING ZEROS TO THE END
+
+Find first zero (j)
+
+From j + 1 onward, if a non-zero is found → swap with nums[j]
+
+Increment j each time a swap happens
+
+
+ void moveZeroes(vector<int>& nums) {
+        int j =-1;
+        for(int i=0;i<nums.size();i++){
+            if(nums[i]==0){
+                j=i;
+                break;
+            }
+        }
+       if(j== -1) return ;
+
+        for (int i = j+1; i<nums.size(); i++){
+            if(nums[i] !=0){
+                swap(nums[i],nums[j]);
+                j++;
+            }
+        }
+    }
+
