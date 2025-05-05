@@ -1,0 +1,29 @@
+Rotate Array left
+
+arr[] = [1, 2, 3, 4, 5, 6, 7]  d=3
+rotate [1, 2, 3] and [4, 5, 6, 7]
+=>     [3, 2, 1] and [7, 6, 5, 4]  reverse(arr, arr+d)  reverse(arr+d, arr+n)
+now reverse both [4, 5, 6, 7, 1, 2, 3 ] here is the ans rotating 3 left  reverse(a, a+n)
+
+#include <bits/stdc++.h>
+#include<iostream>
+using namespace std;
+void leftRotate(int arr[], int d)
+{
+  reverse(arr, arr+d);
+  reverse(arr+d, arr+n);
+  reverse(arr, arr+n);
+}
+int main (){
+  int n;
+  cin>> n;
+  leftRotate(arr, n, d);
+  for(int i=0; i<n; i++){
+    cout<<arr[i]<" ";
+  }
+return 0
+}
+
+
+
+
