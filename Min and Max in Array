@@ -1,0 +1,19 @@
+Min and Max in Array
+set
+maximum =INT_MIN;
+minimum =INT_MAX;
+start ine by one with max element and min element
+class Solution {
+  public:
+    pair<int, int> getMinMax(vector<int> arr) {
+        // code here
+         int maximum =INT_MIN;
+        int minimum =INT_MAX;
+        for(int i=0;i<arr.size();i++){
+            int x = arr[i];
+            maximum =max(x, maximum);
+            minimum =min(x, minimum);
+        }
+        return {minimum,maximum};
+    }
+};
