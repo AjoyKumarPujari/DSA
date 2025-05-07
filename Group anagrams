@@ -1,0 +1,35 @@
+ Group Anagrams :
+Function groupAnagrams takes a reference to a vector of strings (strs).
+It declares a map mp where:
+Key: string — the sorted version of a word.
+Value: vector<string> — list of words (anagrams) that match this sorted key.
+Iterates through each string x in the input vector strs.
+Makes a copy of x to word (because we want to sort it without changing the original).
+sort(word.begin(), word.end()) sorts the characters in word. For example:
+"eat" → "aet"
+"tea" → "aet"
+"tan" → "ant"
+Then x (the original word) is pushed into the vector at key mp[word].
+All anagrams get grouped under the same sorted key.
+Next:
+Declares a 2D vector ans to hold the final grouped anagrams.
+Loops over each entry x in the map mp.
+x.second is the vector of anagrams (e.g., ["eat", "tea", "ate"])
+It pushes each group into ans.
+Returns ans.
+
+
+vector<vector<string>> groupAnagrams(vector<string>& strs) {
+        unordered_map<string, vector<string>> mp;
+        for(auto x: strs){
+            string word = x;
+            sort(word.begin(), word.end());
+            mp[word].push_back(x);
+        }
+
+        vector<vector<string>> ans;
+        for(auto x: mp){
+            ans.push_back(x.second);
+        }
+        return ans;
+    }
