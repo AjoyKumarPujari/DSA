@@ -33,3 +33,37 @@ vector<vector<string>> groupAnagrams(vector<string>& strs) {
         }
         return ans;
     }
+
+
+#include <vector>
+#include <string>
+#include <unordered_map>
+#include <algorithm>
+
+using namespace std;
+
+vector<vector<string>> groupAnagrams(vector<string>& strs) {
+    // Declare a map to group anagrams
+    // Key: sorted version of the string
+    // Value: list of original strings (anagrams)
+    unordered_map<string, vector<string>> mp;
+
+    // Iterate over each word in the input list
+    for (auto x : strs) {
+        string word = x;                 // Make a copy of the word
+        sort(word.begin(), word.end()); // Sort the characters in the word
+
+        // Use the sorted word as the key and add the original word to the map
+        mp[word].push_back(x);
+    }
+
+    // Prepare the final result
+    vector<vector<string>> ans;
+
+    // Extract each group of anagrams from the map and add to the result
+    for (auto x : mp) {
+        ans.push_back(x.second);  // x.second is the vector of anagrams
+    }
+
+    return ans; // Return all grouped anagrams
+}
