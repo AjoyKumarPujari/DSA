@@ -1,0 +1,26 @@
+These create two hash maps (ma and mb) that map a character (char) to an integer (int).
+ma will store the frequency of each character in string s.
+mb will store the frequency of each character in string t.
+for(const auto &a: s)  This loop iterates over each character el in string s.
+ma[el]++ increases the count of that character in the map.
+If the character is not already in the map, it is inserted with a count of 0, then incremented to 1.
+return ma==mb; check all elements availabe on ma and mb 
+
+bool isAnagram(string s, string t) {
+        if (s.length() != t.length()) {
+            return false;
+        }
+        std::unordered_map<char, int> ma;
+        std::unordered_map<char, int> mb;
+
+        for(const auto &a: s)  //& — is a reference, meaning a refers directly to the character in the string, avoiding a copy.
+        {
+            ma[a]++;
+        }
+        for(const auto &b: t)
+        {
+            mb[b]++;
+        }
+        return ma==mb;
+
+    }
